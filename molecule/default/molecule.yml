@@ -1,0 +1,16 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+platforms:
+  - name: bionic
+    box: generic/ubuntu1804
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra
+lint: |
+    yamllint .
+    ansible-lint
+    flake8

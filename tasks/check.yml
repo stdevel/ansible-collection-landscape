@@ -1,0 +1,4 @@
+---
+- name: Ensure having supported Ubuntu release
+  fail: msg="Please install supported Ubuntu release"
+  when: ansible_distribution_version not in ['16.04', '18.04']

@@ -1,0 +1,6 @@
+---
+- name: Install Landscape packages
+  apt:
+    name: "{{ landscape_packages }}"
+    update_cache: yes
+  become: true

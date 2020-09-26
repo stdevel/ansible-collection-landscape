@@ -1,0 +1,6 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-landscape
+      landscape_use_lvm: false

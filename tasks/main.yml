@@ -1,0 +1,9 @@
+---
+- include_tasks: check.yml
+  tags: check
+
+- include_tasks: prepare.yml
+  tags: prepare
+
+- include_tasks: install.yml
+  tags: install

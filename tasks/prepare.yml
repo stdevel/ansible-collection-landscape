@@ -1,0 +1,42 @@
+---
+- name: Install core utilities
+  apt:
+    name: "{{ landscape_core_packages }}"
+    state: present
+  become: true
+
+- name: Create a volume group for Landscape
+  lvg:
+    vg: "{{ landscape_vg }}"
+    pvs: "{{ landscape_pv }}"
+  become: true
+  when: landscape_use_lvm | bool
+
+- name: Create logical volumes, file systems and mount points
+  block:
+    - name: Create logical volumes
+      lvol:
+        vg: "{{ landscape_vg }}"
+        lv: "{{ item.name }}"
+        size: "{{ item.size }}"
+      with_items: "{{ landscape_filesystems }}"
+    - name: Create file systems
+      filesystem:
+        fstype: "{{ item.type }}"
+        dev: "/dev/mapper/{{ landscape_vg }}-{{ item.name }}"
+      with_items: "{{ landscape_filesystems }}"
+    - name: Create mount points
+      mount:
+        path: "{{ item.mountpoint }}"
+        src: "/dev/mapper/{{ landscape_vg }}-{{ item.name }}"
+        fstype: "{{ item.type }}"
+        opts: auto
+        state: mounted
+      with_items: "{{ landscape_filesystems }}"
+  become: true
+  when: landscape_use_lvm | bool
+
+- name: Add Landscape PPA
+  apt_repository:
+    repo: "{{ landscape_ppa }}"
+  become: true
