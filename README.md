@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stdevel/ansible-landscape.svg?branch=master)](https://travis-ci.org/stdevel/ansible-landscape)
+
 # landscape
 
 This role prepares and installs [Canonical Landscape](https://landscape.canonical.com/).
