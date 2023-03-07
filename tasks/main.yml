@@ -1,5 +1,6 @@
 ---
-- include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+- name: Include variables
+  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
   vars:
     params:
       files:
@@ -8,11 +9,14 @@
       paths:
         - 'vars'
 
-- include_tasks: check.yml
+- name: Include check tasks
+  ansible.builtin.include_tasks: check.yml
   tags: check
 
-- include_tasks: prepare.yml
+- name: Include prepare tasks
+  ansible.builtin.include_tasks: prepare.yml
   tags: prepare
 
-- include_tasks: install.yml
+- name: Include install tasks
+  ansible.builtin.include_tasks: install.yml
   tags: install

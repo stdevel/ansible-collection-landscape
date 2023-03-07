@@ -1,6 +1,6 @@
 ---
 - name: Install Landscape packages
-  apt:
+  ansible.builtin.apt:
     name: "{{ landscape_packages }}"
-    update_cache: yes
+    update_cache: true
   become: true

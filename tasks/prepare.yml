@@ -1,42 +1,42 @@
 ---
 - name: Install core utilities
-  apt:
+  ansible.builtin.apt:
     name: "{{ landscape_core_packages }}"
     state: present
   become: true
 
 - name: Create a volume group for Landscape
-  lvg:
+  community.general.lvg:
     vg: "{{ landscape_vg }}"
     pvs: "{{ landscape_pv }}"
   become: true
   when: landscape_use_lvm | bool
 
 - name: Create logical volumes, file systems and mount points
+  become: true
+  when: landscape_use_lvm | bool
   block:
     - name: Create logical volumes
-      lvol:
+      community.general.lvol:
         vg: "{{ landscape_vg }}"
         lv: "{{ item.name }}"
         size: "{{ item.size }}"
-      with_items: "{{ landscape_filesystems }}"
-    - name: Create file systems
-      filesystem:
+      loop: "{{ landscape_filesystems }}"
+    - name: Create file systems # noqa: args[module]
+      community.general.filesystem:
         fstype: "{{ item.type }}"
         dev: "/dev/mapper/{{ landscape_vg }}-{{ item.name }}"
-      with_items: "{{ landscape_filesystems }}"
+      loop: "{{ landscape_filesystems }}"
     - name: Create mount points
-      mount:
+      ansible.posix.mount:
         path: "{{ item.mountpoint }}"
         src: "/dev/mapper/{{ landscape_vg }}-{{ item.name }}"
         fstype: "{{ item.type }}"
         opts: auto
         state: mounted
-      with_items: "{{ landscape_filesystems }}"
-  become: true
-  when: landscape_use_lvm | bool
+      loop: "{{ landscape_filesystems }}"
 
 - name: Add Landscape PPA
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ landscape_ppa }}"
   become: true
