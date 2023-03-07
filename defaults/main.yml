@@ -1,13 +1,9 @@
 ---
 # package configuration
-landscape_version: "19.10"
+landscape_version: '23.03'
 landscape_core_packages:
   - xfsprogs
   - lvm2
-landscape_ppa: "ppa:landscape/{{ landscape_version }}"
-landscape_packages:
-  - landscape-server-quickstart
-  - landscape-api
 
 # storage configuration
 landscape_use_lvm: true

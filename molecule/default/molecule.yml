@@ -6,6 +6,8 @@ driver:
 platforms:
   - name: bionic
     box: generic/ubuntu1804
+  - name: jammy
+    box: generic/ubuntu2204
 provisioner:
   name: ansible
 verifier:

@@ -1,4 +1,12 @@
 ---
-- name: Ensure having supported Ubuntu release
+- name: Ensure having supported Ubuntu release for 19.10
   fail: msg="Please install supported Ubuntu release"
-  when: ansible_distribution_version not in ['16.04', '18.04']
+  when:
+    - landscape_version == '19.10'
+    - ansible_distribution_version not in ['16.04', '18.04']
+
+- name: Ensure having supported Ubuntu release for 23.03
+  fail: msg="Please install supported Ubuntu release"
+  when:
+    - landscape_version == '23.03'
+    - ansible_distribution_version not in ['20.04', '22.04']

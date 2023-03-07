@@ -1,2 +1,5 @@
 ---
-# vars file for landscape
+landscape_ppa: "ppa:landscape/{{ landscape_version }}"
+landscape_packages:
+  - landscape-server-quickstart
+  - landscape-api

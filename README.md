@@ -6,14 +6,18 @@ This role prepares and installs [Canonical Landscape](https://landscape.canonica
 
 ## Requirements
 
-The system needs access to the internet. Also, you will need Ubuntu 16.04 (*Xenial Xerus*) or 18.04 (*Bionic Beaver*).
+The system needs access to the internet. Also, you will need an prober Ubuntu release
+
+| Landscape version | Supported Ubuntu verions |
+| ----------------- | ------------------------ |
+| 23.03 | Ubuntu 20.04 (*Focal Fossa*) or 22.04 (*Jammy Jellyfish*) |
+| 19.10 | Ubuntu 16.04 (*Xenial Xerus*) or 18.04 (*Bionic Beaver*) |
 
 ## Role variables
 
-
 | Variable | Default | Description |
 | -------- | ------- | ----------- |
-| `landscape_version` | `19.10` | Landscape version to install |
+| `landscape_version` | `23.03` | Landscape version to install (*19.10 or 23.03*) |
 | `landscape_core_packages` | see [`defaults`](defaults/main.yml) | Core packages to install |
 | `landscape_ppa` | `ppa:landscape/version` | Landscape PPA URL |
 | `landscape_packages` | see [`defaults`](defaults/main.yml) | Landscape packages to install |
@@ -31,9 +35,10 @@ No dependencies.
 Refer to the following example:
 
 ```yaml
-    - hosts: servers
-      roles:
-         - stdevel.landscape
+---
+- hosts: servers
+  roles:
+    - stdevel.landscape
 ```
 
 Set variables if required, e.g. for dedicated software repository filesystem:

@@ -1,4 +1,13 @@
 ---
+- include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ landscape_version }}.yml'
+        - main.yml
+      paths:
+        - 'vars'
+
 - include_tasks: check.yml
   tags: check
 

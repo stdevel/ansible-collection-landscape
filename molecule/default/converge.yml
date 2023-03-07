@@ -1,6 +1,14 @@
 ---
 - name: Converge
-  hosts: all
+  hosts: bionic
   roles:
-    - role: ansible-landscape
+    - role: stdevel.landscape
+      landscape_version: '19.10'
+      landscape_use_lvm: false
+
+- name: Converge
+  hosts: jammy
+  roles:
+    - role: stdevel.landscape
+      landscape_version: '23.03'
       landscape_use_lvm: false

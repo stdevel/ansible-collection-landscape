@@ -16,8 +16,7 @@ def test_packages(host):
     landscape_packages = [
         'xfsprogs',
         'lvm2',
-        'landscape-server-quickstart',
-        'landscape-api'
+        'landscape-server-quickstart'
     ]
     # check dependencies and Landscape packages
     for pkg in landscape_packages:
