@@ -6,7 +6,7 @@ This role prepares and installs [Canonical Landscape](https://landscape.canonica
 
 ## Requirements
 
-The system needs access to the internet. Also, you will need an prober Ubuntu release
+The system needs access to the internet. Also, you will need an prober Ubuntu release:
 
 | Landscape version | Supported Ubuntu verions |
 | ----------------- | ------------------------ |
