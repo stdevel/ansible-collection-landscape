@@ -4,9 +4,9 @@ dependency:
 driver:
   name: vagrant
 platforms:
-  - name: bionic
-    box: generic/ubuntu1804
-  - name: jammy
+  - name: landscape2303
+    box: generic/ubuntu2204
+  - name: landscape2310
     box: generic/ubuntu2204
 provisioner:
   name: ansible

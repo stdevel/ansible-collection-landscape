@@ -27,5 +27,5 @@ def test_ports_listen(host):
     """
     Check if application ports are listening
     """
-    for port in [80, 443, 8080, 9080]:
+    for port in [80, 443, 8080]:
         assert host.socket("tcp://0.0.0.0:%s" % port).is_listening

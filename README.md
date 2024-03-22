@@ -11,13 +11,13 @@ The system needs access to the internet. Also, you will need an prober Ubuntu re
 | Landscape version | Supported Ubuntu verions |
 | ----------------- | ------------------------ |
 | 23.03 | Ubuntu 20.04 (*Focal Fossa*) or 22.04 (*Jammy Jellyfish*) |
-| 19.10 | Ubuntu 16.04 (*Xenial Xerus*) or 18.04 (*Bionic Beaver*) |
+| 23.10 | Ubuntu 20.04 (*Focal Fossa*) or 22.04 (*Jammy Jellyfish*) |
 
 ## Role variables
 
 | Variable | Default | Description |
 | -------- | ------- | ----------- |
-| `landscape_version` | `23.03` | Landscape version to install (*19.10 or 23.03*) |
+| `landscape_version` | `23.03` | Landscape version to install (*see above*) |
 | `landscape_core_packages` | see [`defaults`](defaults/main.yml) | Core packages to install |
 | `landscape_ppa` | `ppa:landscape/version` | Landscape PPA URL |
 | `landscape_packages` | see [`defaults`](defaults/main.yml) | Landscape packages to install |
@@ -61,6 +61,20 @@ Set variables if required, e.g. for dedicated software repository filesystem:
           type: xfs
           mountpoint: /var/lib/landscape/landscape-repository
           size: 102400
+```
+
+If you're really into old software, you can also install [unsupported versions](https://launchpad.net/~landscape) for your museum:
+
+```yaml
+---
+- hosts: pepperidge.farm.loc
+  roles:
+    - role: stdevel.landscape
+      landscape_version: '19.10'
+      landscape_ppa: "ppa:landscape/19.10"
+      landscape_packages:
+        - landscape-server-quickstart
+        - landscape-api
 ```
 
 ## License
