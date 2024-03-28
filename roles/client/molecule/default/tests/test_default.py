@@ -7,8 +7,8 @@ import os
 import testinfra.utils.ansible_runner
 
 TESTINFRA_HOSTS = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']
-).get_hosts('all')
+    os.environ["MOLECULE_INVENTORY_FILE"]
+).get_hosts("all")
 
 
 def test_packages(host):
@@ -35,6 +35,6 @@ def test_initialization(host):
     with host.sudo():
         _config = host.file("/etc/landscape/client.conf")
         assert _config.exists
-        assert _config.contains('https://landscape.canonical.com') is False
-        for _key in ['url', 'ping_url', 'data_path']:
+        assert _config.contains("https://landscape.canonical.com") is False
+        for _key in ["url", "ping_url", "data_path"]:
             assert _config.contains(f"{_key} =")
