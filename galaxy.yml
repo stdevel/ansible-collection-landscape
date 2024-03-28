@@ -1,11 +1,11 @@
 ---
 namespace: stdevel
 name: landscape
-version: 1.0.0
+version: 1.4.0
 readme: README.md
 authors:
   - Christian Stankowic <info@cstan.io>
-description: Collection of modules to manage Ubuntu Landscape
+description: Ansible collection for managing Canonical Landscape
 license:
   - GPL-3.0-only
 
