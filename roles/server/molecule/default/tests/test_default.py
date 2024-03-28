@@ -14,8 +14,6 @@ def test_packages(host):
     Check if required packages are installed
     """
     server_packages = [
-        'xfsprogs',
-        'lvm2',
         'landscape-server-quickstart'
     ]
     # check dependencies and Landscape packages

@@ -1,0 +1,12 @@
+---
+storage_vg: vg_landscape
+storage_pv: /dev/sdb
+storage_filesystems:
+  - name: lv_pgsql
+    type: xfs
+    mountpoint: /var/lib/postgresql
+    size: 4096
+  - name: lv_landscape
+    type: xfs
+    mountpoint: /var/lib/landscape
+    size: 4096

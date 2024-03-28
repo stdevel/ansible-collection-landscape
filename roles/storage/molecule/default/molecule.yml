@@ -4,9 +4,9 @@ dependency:
 driver:
   name: vagrant
 platforms:
-  - name: landscape-server-2303
+  - name: landscape-storage-2303
     box: generic/ubuntu2204
-  - name: landscape-server-2310
+  - name: landscape-storage-2310
     box: generic/ubuntu2204
 provisioner:
   name: ansible

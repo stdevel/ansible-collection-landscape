@@ -1,14 +1,12 @@
 ---
 - name: Converge
-  hosts: landscape2303
+  hosts: landscape-server-2303
   roles:
     - role: server
       server_version: '23.03'
-      server_use_lvm: false
 
 - name: Converge
-  hosts: landscape2310
+  hosts: landscape-server-2310
   roles:
     - role: server
       server_version: '23.10'
-      server_use_lvm: false
