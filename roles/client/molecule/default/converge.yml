@@ -6,7 +6,7 @@
     - name: Set hosts entry for local Landscape server
       ansible.builtin.lineinfile:
         path: /etc/hosts
-        line: 'xxx.xxx.xxx.xxx landscape-server'
+        line: '192.168.124.106 landscape-server-2310'
 
     - name: Upload Landscape SSL certificate
       ansible.builtin.copy:
@@ -18,4 +18,4 @@
 
   roles:
     - role: stdevel.landscape.client
-      client_landscape_server: 'landscape-server'
+      client_landscape_server: 'landscape-server-2310'
