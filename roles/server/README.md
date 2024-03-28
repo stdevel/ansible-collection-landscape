@@ -1,6 +1,6 @@
 # server
 
-This role prepares and installs [Canonical Landscape](https://landscape.canonical.com/).
+This role prepares and installs [Ubuntu Landscape](https://landscape.canonical.com/).
 
 ## Requirements
 
