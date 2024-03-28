@@ -13,13 +13,13 @@ def test_packages(host):
     """
     Check if required packages are installed
     """
-    landscape_packages = [
+    server_packages = [
         'xfsprogs',
         'lvm2',
         'landscape-server-quickstart'
     ]
     # check dependencies and Landscape packages
-    for pkg in landscape_packages:
+    for pkg in server_packages:
         assert host.package(pkg).is_installed
 
 

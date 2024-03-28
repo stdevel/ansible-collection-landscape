@@ -1,6 +1,6 @@
 galaxy_info:
   namespace: stdevel
-  role_name: landscape
+  role_name: server
   author: Christian Stankowic
   description: Installs Canonical Landscape
   license: Apache-2.0

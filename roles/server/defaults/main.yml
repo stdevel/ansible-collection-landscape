@@ -1,15 +1,15 @@
 ---
 # package configuration
-landscape_version: '23.03'
-landscape_core_packages:
+server_version: '23.03'
+server_core_packages:
   - xfsprogs
   - lvm2
 
 # storage configuration
-landscape_use_lvm: true
-landscape_vg: vg_landscape
-landscape_pv: /dev/sdb
-landscape_filesystems:
+server_use_lvm: true
+server_vg: vg_landscape
+server_pv: /dev/sdb
+server_filesystems:
   - name: lv_pgsql
     type: xfs
     mountpoint: /var/lib/postgresql

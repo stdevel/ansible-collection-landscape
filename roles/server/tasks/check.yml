@@ -3,12 +3,12 @@
   ansible.builtin.fail:
     msg: Please install supported Ubuntu release
   when:
-    - landscape_version == '23.03'
+    - server_version == '23.03'
     - ansible_distribution_version not in ['20.04', '22.04']
 
 - name: Ensure having supported Ubuntu release for 23.10
   ansible.builtin.fail:
     msg: Please install supported Ubuntu release
   when:
-    - landscape_version == '23.10'
+    - server_version == '23.10'
     - ansible_distribution_version not in ['20.04', '22.04']

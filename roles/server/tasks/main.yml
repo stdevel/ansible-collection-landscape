@@ -4,7 +4,7 @@
   vars:
     params:
       files:
-        - '{{ landscape_version }}.yml'
+        - '{{ server_version }}.yml'
         - main.yml
       paths:
         - 'vars'
