@@ -36,8 +36,8 @@ Set variables if required, e.g.:
   remote_user: root
   roles:
     - role: stdevel.landscape.storage
-      server_vg: vg_landscape
-      server_pv: /dev/sdb
+      storage_vg: vg_landscape
+      storage_pv: /dev/sdb
       storage_filesystems:
         - name: lv_pgsql
           type: xfs
