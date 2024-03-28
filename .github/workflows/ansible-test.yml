@@ -23,11 +23,11 @@ jobs:
           - stable-2.13
           - stable-2.14
         python:
-          - 3.6
-          - 3.7
-          - 3.8
-          - 3.9
-          - 3.10
+          - '3.6'
+          - '3.7'
+          - '3.8'
+          - '3.9'
+          - '3.10'
     runs-on: >-
       ${{ contains(fromJson(
           '["stable-2.9", "stable-2.10", "stable-2.11", "stable-2.12", "stable-2.13", "stable-2.14"]'
