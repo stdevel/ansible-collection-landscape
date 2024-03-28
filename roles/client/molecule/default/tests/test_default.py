@@ -22,6 +22,7 @@ def test_packages(host):
     for pkg in server_packages:
         assert host.package(pkg).is_installed
 
+
 def test_initialization(host):
     """
     Check if client was initialized properly
