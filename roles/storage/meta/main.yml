@@ -1,0 +1,27 @@
+---
+galaxy_info:
+  role_name: storage
+  author: Christian Stankowic
+  namespace: stdevel
+  description: Prepares LVM storage for Ubuntu Landscape
+  issue_tracker_url: https://github.com/stdevel/ansible-collection-landscape/issues
+  license: GPL-3.0-only
+
+  min_ansible_version: "2.9"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - systemsmanagement
+    - ubuntu
+    - linux
+    - canonical
+    - landscape
+
+dependencies: []

@@ -1,0 +1,5 @@
+---
+- name: Add Landscape PPA
+  ansible.builtin.apt_repository:
+    repo: "{{ server_ppa }}"
+  become: true

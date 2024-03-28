@@ -1,0 +1,24 @@
+---
+namespace: stdevel
+name: landscape
+version: 1.0.0
+readme: README.md
+authors:
+  - Christian Stankowic <info@cstan.io>
+description: Collection of modules to manage Ubuntu Landscape
+license:
+  - GPL-3.0-only
+
+tags:
+  - systemsmanagement
+  - ubuntu
+  - linux
+  - canonical
+  - landscape
+
+dependencies: {}
+
+repository: https://github.com/stdevel/ansible-collection-landscape
+documentation: https://github.com/stdevel/ansible-collection-landscape/blob/main/README.md
+homepage: https://github.com/stdevel/ansible-collection-landscape
+issues: https://github.com/stdevel/ansible-collection-landscape/issues

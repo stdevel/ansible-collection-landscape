@@ -1,4 +1,0 @@
----
-landscape_ppa: "ppa:landscape/self-hosted-{{ landscape_version }}"
-landscape_packages:
-  - landscape-server-quickstart

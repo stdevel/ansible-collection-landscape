@@ -1,0 +1,29 @@
+---
+- name: Converge machines
+  hosts: all
+  become: true
+  pre_tasks:
+    - name: Install packages
+      ansible.builtin.package:
+        name:
+          - xfsprogs
+
+    - name: Set disk for KVM
+      ansible.builtin.set_fact:
+        storage_pv: /dev/vdb
+      when: ansible_virtualization_type == 'kvm'
+
+    - name: Include vars
+      ansible.builtin.include_vars: vars/main.yml
+
+  roles:
+    - role: stdevel.landscape.storage
+      storage_filesystems:
+        - name: lv_pgsql
+          type: xfs
+          mountpoint: /var/lib/postgresql
+          size: 4096
+        - name: lv_landscape
+          type: xfs
+          mountpoint: /var/lib/landscape
+          size: 4096

@@ -1,0 +1,21 @@
+---
+- name: Converge machines
+  hosts: all
+  become: true
+  pre_tasks:
+    - name: Set hosts entry for local Landscape server
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        line: '192.168.124.106 landscape-server-2310'
+
+    - name: Upload Landscape SSL certificate
+      ansible.builtin.copy:
+        src: landscape.pem
+        dest: /etc/landscape/landscape_server.pem
+        owner: root
+        group: root
+        mode: '0644'
+
+  roles:
+    - role: stdevel.landscape.client
+      client_landscape_server: 'landscape-server-2310'

@@ -1,0 +1,14 @@
+---
+- name: Install Landscape client
+  ansible.builtin.apt:
+    name: landscape-client
+    update_cache: true
+
+- name: Set parameters and facts
+  ansible.builtin.include_tasks: facts.yml
+
+- name: Register system
+  ansible.builtin.command: "landscape-config {{ register_parameter_ssl }} {{ register_parameter_tags }} {{ register_parameter_key }} {{ register_parameter_title }} {{ register_parameter_account }} --url https://{{ client_landscape_server }}/message-system --ping-url http://{{ client_landscape_server }}/ping --silent"
+  args:
+    creates: /var/lib/landscape/client/manager.database
+  become: true

@@ -1,0 +1,36 @@
+---
+- name: Install core utilities
+  ansible.builtin.apt:
+    name: "{{ storage_packages }}"
+    update_cache: true
+    state: present
+  become: true
+
+- name: Create a volume group for Landscape
+  community.general.lvg:
+    vg: "{{ storage_vg }}"
+    pvs: "{{ storage_pv }}"
+  become: true
+
+- name: Create logical volumes, file systems and mount points
+  become: true
+  block:
+    - name: Create logical volumes
+      community.general.lvol:
+        vg: "{{ storage_vg }}"
+        lv: "{{ item.name }}"
+        size: "{{ item.size }}"
+      loop: "{{ storage_filesystems }}"
+    - name: Create file systems # noqa: args[module]
+      community.general.filesystem:
+        fstype: "{{ item.type }}"
+        dev: "/dev/mapper/{{ storage_vg }}-{{ item.name }}"
+      loop: "{{ storage_filesystems }}"
+    - name: Create mount points
+      ansible.posix.mount:
+        path: "{{ item.mountpoint }}"
+        src: "/dev/mapper/{{ storage_vg }}-{{ item.name }}"
+        fstype: "{{ item.type }}"
+        opts: auto
+        state: mounted
+      loop: "{{ storage_filesystems }}"

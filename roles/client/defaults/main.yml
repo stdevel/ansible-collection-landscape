@@ -1,0 +1,3 @@
+---
+client_account_name: standalone
+client_landscape_ssl: /etc/landscape/landscape_server.pem

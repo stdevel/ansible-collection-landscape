@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+platforms:
+  - name: landscape-server-2303
+    box: generic/ubuntu2204
+  - name: landscape-server-2310
+    box: generic/ubuntu2204
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra
+lint: |
+    yamllint .
+    ansible-lint
+    flake8
