@@ -22,6 +22,10 @@
     register_parameter_key: ''
   when: client_registration_key is undefined
 
+- name: Set computer title (if set)
+  ansible.builtin.set_fact:
+    register_parameter_title: "--computer-title '{{ client_computer_title }}'"
+  when: client_computer_title is defined
 - name: Set computer title (if not set)
   ansible.builtin.set_fact:
     register_parameter_title: "--computer-title '{{ ansible_fqdn }}'"
