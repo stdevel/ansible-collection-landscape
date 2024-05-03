@@ -8,6 +8,7 @@ The system needs access to the internet. Also, you will need an prober Ubuntu re
 
 | Landscape version | Supported Ubuntu verions |
 | ----------------- | ------------------------ |
+| 24.04 | 22.04 (*Jammy Jellyfish*) or 24.04 (*Noble Numbat*) |
 | 23.03 | Ubuntu 20.04 (*Focal Fossa*) or 22.04 (*Jammy Jellyfish*) |
 | 23.10 | Ubuntu 20.04 (*Focal Fossa*) or 22.04 (*Jammy Jellyfish*) |
 
@@ -15,7 +16,7 @@ The system needs access to the internet. Also, you will need an prober Ubuntu re
 
 | Variable | Default | Description |
 | -------- | ------- | ----------- |
-| `server_version` | `23.03` | Landscape version to install (*see above*) |
+| `server_version` | `24.04` | Landscape version to install (*see above*) |
 | `server_ppa` | `ppa:landscape/version` | Landscape PPA URL |
 | `server_packages` | see [`defaults`](defaults/main.yml) | Landscape packages to install |
 

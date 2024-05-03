@@ -1,4 +1,11 @@
 ---
+- name: Ensure having supported Ubuntu release for 24.04
+  ansible.builtin.fail:
+    msg: Please install supported Ubuntu release
+  when:
+    - server_version == '24.04'
+    - ansible_distribution_version not in ['22.04', '24.04']
+
 - name: Ensure having supported Ubuntu release for 23.03
   ansible.builtin.fail:
     msg: Please install supported Ubuntu release
