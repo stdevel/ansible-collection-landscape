@@ -6,8 +6,8 @@ driver:
 platforms:
   - name: landscape-server-2404
     box: bento/ubuntu-24.04
-  - name: landscape-server-2303
-    box: generic/ubuntu2204
+    cpus: 4
+    memory: 4096
 provisioner:
   name: ansible
 verifier:
