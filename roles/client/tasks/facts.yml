@@ -1,41 +1,41 @@
 ---
 - name: Set SSL certificate (if set)
   ansible.builtin.set_fact:
-    register_parameter_ssl: "--ssl-public-key {{ client_landscape_ssl }}"
+    register_parameter_ssl: --ssl-public-key {{ client_landscape_ssl }}
   when: client_landscape_ssl is defined
 
 - name: Set account name (if set)
   ansible.builtin.set_fact:
-    register_parameter_tags: "--tags {{ client_tags }}"
+    register_parameter_tags: --tags {{ client_tags }}
   when: client_tags is defined
 - name: Set account name (if not set)
   ansible.builtin.set_fact:
-    register_parameter_tags: ''
+    register_parameter_tags: ""
   when: client_tags is undefined
 
 - name: Set registration key (if set)
   ansible.builtin.set_fact:
-    register_parameter_key: "--registration-key {{ client_registration_key }}"
+    register_parameter_key: --registration-key {{ client_registration_key }}
   when: client_registration_key is defined
 - name: Set registration key (if not set)
   ansible.builtin.set_fact:
-    register_parameter_key: ''
+    register_parameter_key: ""
   when: client_registration_key is undefined
 
 - name: Set computer title (if set)
   ansible.builtin.set_fact:
-    register_parameter_title: "--computer-title '{{ client_computer_title }}'"
+    register_parameter_title: --computer-title '{{ client_computer_title }}'
   when: client_computer_title is defined
 - name: Set computer title (if not set)
   ansible.builtin.set_fact:
-    register_parameter_title: "--computer-title '{{ ansible_fqdn }}'"
+    register_parameter_title: --computer-title '{{ ansible_fqdn }}'
   when: client_computer_title is undefined
 
 - name: Set account name (if set)
   ansible.builtin.set_fact:
-    register_parameter_account: "--account-name {{ client_account_name }}"
+    register_parameter_account: --account-name {{ client_account_name }}
   when: client_account_name is defined
 - name: Set account name (if not set)
   ansible.builtin.set_fact:
-    register_parameter_account: ''
+    register_parameter_account: ""
   when: client_account_name is undefined

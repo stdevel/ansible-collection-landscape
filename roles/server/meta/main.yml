@@ -1,3 +1,4 @@
+---
 galaxy_info:
   namespace: stdevel
   role_name: server
@@ -5,7 +6,7 @@ galaxy_info:
   description: Installs Ubuntu Landscape
   license: GPL-3.0-only
 
-  min_ansible_version: '2.9'
+  min_ansible_version: "2.9"
 
   platforms:
     - name: Ubuntu
