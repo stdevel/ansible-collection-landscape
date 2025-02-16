@@ -1,12 +1,25 @@
 ---
+- name: Prepare
+  hosts: all
+  pre_tasks:
+    - name: Update apt-cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install requirements
+      ansible.builtin.package:
+        name:
+          - gnupg2
+
 - name: Converge
   hosts: landscape-server-2303
+
   roles:
-    - role: server
+    - role: stdevel.landscape.server
       server_version: '23.03'
 
 - name: Converge
   hosts: landscape-server-2404
   roles:
-    - role: server
+    - role: stdevel.landscape.server
       server_version: '24.04'
