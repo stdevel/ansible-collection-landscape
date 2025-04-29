@@ -2,12 +2,13 @@
 dependency:
   name: galaxy
 driver:
-  name: vagrant
+  name: podman
 platforms:
   - name: landscape-server-2404
-    box: bento/ubuntu-24.04
-    cpus: 4
-    memory: 4096
+    image: docker.io/ubuntu:24.04
+    published_ports:
+      - 127.0.0.1:8080:80
+      - 127.0.0.1:8443:443
 provisioner:
   name: ansible
 verifier:
