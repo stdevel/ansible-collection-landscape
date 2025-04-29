@@ -13,6 +13,6 @@ provisioner:
 verifier:
   name: testinfra
 lint: |
-    yamllint .
-    ansible-lint
-    flake8
+  yamllint .
+  ansible-lint
+  flake8

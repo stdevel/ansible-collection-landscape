@@ -16,10 +16,10 @@
 
   roles:
     - role: stdevel.landscape.server
-      server_version: '23.03'
+      server_version: "23.03"
 
 - name: Converge
   hosts: landscape-server-2404
   roles:
     - role: stdevel.landscape.server
-      server_version: '24.04'
+      server_version: "24.04"

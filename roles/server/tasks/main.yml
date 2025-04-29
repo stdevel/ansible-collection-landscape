@@ -4,10 +4,10 @@
   vars:
     params:
       files:
-        - '{{ server_version }}.yml'
+        - "{{ server_version }}.yml"
         - main.yml
       paths:
-        - 'vars'
+        - vars
 
 - name: Include check tasks
   ansible.builtin.include_tasks: check.yml

@@ -17,7 +17,6 @@ tags:
   - landscape
 
 dependencies: {}
-
 repository: https://github.com/stdevel/ansible-collection-landscape
 documentation: https://github.com/stdevel/ansible-collection-landscape/blob/main/README.md
 homepage: https://github.com/stdevel/ansible-collection-landscape

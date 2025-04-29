@@ -24,12 +24,12 @@
     - name: Create file systems # noqa: args[module]
       community.general.filesystem:
         fstype: "{{ item.type }}"
-        dev: "/dev/mapper/{{ storage_vg }}-{{ item.name }}"
+        dev: /dev/mapper/{{ storage_vg }}-{{ item.name }}
       loop: "{{ storage_filesystems }}"
     - name: Create mount points
       ansible.posix.mount:
         path: "{{ item.mountpoint }}"
-        src: "/dev/mapper/{{ storage_vg }}-{{ item.name }}"
+        src: /dev/mapper/{{ storage_vg }}-{{ item.name }}
         fstype: "{{ item.type }}"
         opts: auto
         state: mounted
